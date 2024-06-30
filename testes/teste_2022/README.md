@@ -2,11 +2,11 @@
 
 ## Escolha múltipla 
 
-1. c)
+1. c) e d)
 
-2. c) e d)
+2. d)
 
-3. b)
+3. b) e d)
 
 4. a)
 

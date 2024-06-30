@@ -2,13 +2,13 @@
 
 ## Escolha múltipla 
 
-1. b), c) e d)
+1. c) e d)
 
-2. c)
+2. d)
 
-3. b)
+3. a) e b)
 
-4. a), b) e d)
+4. a) e d)
 
 ## Desenvolvimento
 
