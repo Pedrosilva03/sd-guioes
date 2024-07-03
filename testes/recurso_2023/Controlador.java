@@ -1,4 +1,4 @@
-package teste_2023;
+package testes.recurso_2023;
 
 interface Controlador {
     int reserva();

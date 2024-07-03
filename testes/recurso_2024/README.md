@@ -2,13 +2,7 @@
 
 ## 1
 
-O algoritmo de Peterson é uma técnica clássica para assegurar a exclusão mútua entre dois processos ou threads. No entanto, ele não é diretamente aplicável a mais de dois threads sem modificações significativas. O algoritmo de Peterson para dois threads utiliza duas variáveis principais:
-
-- flag[i]: Indica se o thread i deseja entrar na região crítica
-
-- turn: Indica de quem é a vez de tentar entrar na região crítica
-
-Tomemos com exemplo o algoritmo de peterson a funcionar com 3 threads. Cada um destes threads quer entrar na secção critica. Quando cada um destes threads entra na secção critica flag[i] == 1 (i<3), logo cada thread vai ficar à espera que os outros mudem a sua flag. Estamos numa situação de deadlock, ou seja, o programa bloqueia.
+O algoritmo de Peterson é uma técnica para assegurar a exclusão mútua entre dois processos ou threads. No entanto, ele não é diretamente aplicável a mais de dois threads. O algoritmo de Peterson para dois threads utiliza duas variáveis principais. Tomemos com exemplo o algoritmo de peterson a funcionar com 3 threads. Cada um destes threads quer entrar na secção critica. Quando cada um destes threads quer entrar na secção critica flag[i] == 1 (i<3), logo cada thread vai ficar à espera que os outros mudem a sua flag. Estamos numa situação de deadlock, ou seja, o programa bloqueia.
 
 ## 2
 
@@ -20,4 +14,4 @@ Relógios lógicos, como os vetoriais ou de Lamport, fornecem uma maneira eficie
 
 ## 4
 
-O sistema deve ser capaz de alocar recursos de maneira eficiente e escalar horizontalmente (adicionando mais máquinas físicas ou instâncias virtuais) para atender à quantidade de pedidos. Se os recursos são limitados, o sistema deve priorizar os pedidos, alocar recursos dinamicamente e garantir que os serviços críticos permaneçam operacionais. **(como resolver ???)**
+O principal problema de sistemas distribuídos para garantir que este serviço esteja sempre disponível, mesmo quando as máquinas físicas podem falhar, é a tolerância a falhas. Uma solução eficaz para este problema é a utilização de algoritmos de consenso, como o **Paxos**, para manter a consistência e disponibilidade do sistema. O Paxos é um protocolo de consenso que pode garantir que mesmo que algumas das máquinas físicas falhem, o sistema ainda pode continuar a funcionar corretamente. Isto é alcançado através de um processo de votação entre os nós restantes para decidir o estado atual e continuar operação do serviço sem interrupções significativas.

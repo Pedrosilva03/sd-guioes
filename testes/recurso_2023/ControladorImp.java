@@ -1,5 +1,3 @@
-package teste_2023;
-
 import java.util.*;
 import java.util.concurrent.locks.*;
 
