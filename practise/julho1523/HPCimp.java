@@ -50,6 +50,7 @@ public class HPCimp implements HPC{
         this.lock.lock();
         this.timestamps.put(tarefa, tempo);
         this.usedCores -= this.queue.remove(tarefa).getCores();
+        this.cond.signalAll();
         this.lock.unlock();
     }
 
