@@ -1,3 +1,5 @@
+package testes.recurso_2024;
+
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 

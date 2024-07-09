@@ -1,3 +1,5 @@
+package testes.recurso_2024;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Condition;
