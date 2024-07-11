@@ -2,11 +2,11 @@
 
 ## 1
 
-A estratégia de 1-thread-por-pedido é geralmente mais eficiente do que a estratégia de 1-thread-por-ligação, especialmente quando o número de ligações é bastante elevado. Na estratégia de 1-thread-por-ligação, cada conexão ativa com o servidor é gerida por uma thread separada. Isto pode rapidamente esgotar os recursos do sistema devido ao elevado número de threads ativas, resultando em overhead significativo na gestão de threads.
+A **1-thread-por-ligação**, sempre que o cliente estabelece uma ligação com um servidor essa sessão vai ser executada num thread em separado. Dessa forma,  pedidos de clientes diferentes podem ser executados em simultâneo.
 
-Na estratégia de 1-thread-por-pedido, o número de threads é proporcional à quantidade de pedidos feitos ao servidor, em vez de ser proporcional ao número de ligações. Se um cliente não fizer nenhum pedido ao servidor, não há necessidade de manter uma thread dedicada à sua conexão, o que resulta em uma utilização mais eficiente dos recursos do sistema.
+Já a **1-thread-por-pedido** permite também vários clientes, porém estes podem ter vários pedidos a ser executados em simultâneo. 
 
-Além disso, ao abrir threads por pedidos, o sistema só consome recursos quando há atividade, ou seja, quando há pedidos a serem processados. Isso permite uma gestão mais eficiente dos recursos, dado que cada pedido é tratado de forma isolada por uma thread dedicada. Este modelo também facilita a gestão de múltiplos pedidos do mesmo cliente, uma vez que cada pedido é tratado pela sua própria thread.
+De um ponto de vista de eficiência, o 1-thread-por-pedido tem um custo adicional, devido a ser preciso criar um um novo thread por casa pedido, porém este permite também executar mais pedidos em simultâneo, relativamente ao 1-thread-por-ligação, que apenas permite um pedido por cliente.
 
 ## 2
 
@@ -24,8 +24,6 @@ O coordenador também pode falhar em qualquer ponto do processo. Se o coordenado
 
 ## 4
 
-Num serviço distribuído por vários servidores que trabalham todos com a mesma fila de espera, o principal problema será a concorrência para alterar o estado da fila de espera. Um problema comum em sistemas distribuídos é garantir a consistência e integridade dos dados partilhados, evitando condições de corrida e garantindo que todos os servidores tenham uma visão consistente da fila.
+Num serviço distribuído por vários servidores que trabalham todos com a mesma fila de espera, o principal problema será a concorrência para alterar o estado da fila de espera. Um problema comum em sistemas distribuídos é garantir a consistência e integridade dos dados partilhados, evitando condições de corrida e garantindo que todos os servidores tenham uma visão consistente da fila. 
 
-Uma solução típica para este problema é a utilização de um protocolo de coordenação, onde um servidor é designado como coordenador responsável por gerir a fila de espera. O algoritmo Bully pode ser utilizado para eleger um coordenador entre os servidores, especialmente em situações de falha, garantindo que um novo coordenador seja eleito se o atual falhar. 
-
-Além da eleição do coordenador, é necessário garantir que as operações na fila sejam realizadas de maneira consistente. Isso pode ser alcançado utilizando mecanismos de sincronização e coordenação, como o paxos.
+Uma solução adequada a para esta situação seria implementar o paxos. Neste método, o estado do sistema é replicado pelos vários nós. Existe ainda a eleição de um nó (líder) que irá coordenar a atividade no sistema. Decisões são tomadas através de votações entre os nós. Desta forma, todos o nós têm a mesma visão sobre o estado do sistema, visto que existe um acordo no que toca ao estado atual e às mudanças a realizar no mesmo. O paxos ainda tolera falhas no coordenador através da eleição de um novo coordenador, logo, o funcionamento do sistema não é comprometido nesta situação.
