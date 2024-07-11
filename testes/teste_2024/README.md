@@ -14,4 +14,4 @@ Na disseminação epidémica, cada nó na rede seleciona periodicamente alguns n
 
 ## 4
 
-No caso de os sistemas se encontarem no mesmo centro de dados, podemos recorrer ao **two-phase commit**. Desta forma a reserva só será feita na totalidade se tanto a reserva na transportadora como a reserva no hotel sejam feitas com sucesso.
+No caso de os sistemas se encontarem no mesmo centro de dados, podemos recorrer ao **two-phase commit**. Desta forma a reserva só será feita na totalidade se tanto a reserva na transportadora como a reserva no hotel sejam feitas com sucesso. No caso de os sistemas se encontrarem em centros de dados diferentes, ao utilizar o 2PC, irá aumentar a latência devido à distância entre os servidores. Existe ainda o risco de ocorrer um timout do processo coordenador.
