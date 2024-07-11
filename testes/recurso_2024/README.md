@@ -2,9 +2,7 @@
 
 ## 1
 
-O algoritmo de Peterson é uma técnica para assegurar a exclusão mútua entre dois processos ou threads. Ele funciona bem para dois threads, utilizando duas variáveis principais: flag, para indicar que um thread deseja entrar na seção crítica, e turn, para indicar de quem é a vez de entrar na seção crítica.
-
-Para mais de dois threads, o algoritmo de Peterson não é diretamente aplicável na sua forma original, pois foi desenhado apenas para dois threads. No algoritmo de Peterson, no caso de existirem dois threads, um deles tem que baixar a flag para o outro poder entrar na SC. No caso de existirem três threads, dois threas irão continuar com a flag levantada. Isto resulta numa situação de deadlock, logo o  programa bloqueia.
+O algoritmo de Peterson foi desenvolvido para resolver o problema da exclusão mútua quando temos duas threads. Neste, quando dois threads chegam mais ou menos ao mesmo tempo, à secção crítica, ambos erguem a sua bandeira, indicando que querem aceder à secção crítica, e o que chegar depois fica como vítima, só podendo avançar quando o outro baixar a sua bandeira. Num ambiente multi-thread apenas o último thread a chegar vai ficar como vítima, fazendo com que tenhamos vários threads ao mesmo tempo, dentro da secção crítica. Desta forma, o programa **não vai bloquear, mas não será capaz de garantir a exclusão mútua**.
 
 ## 2
 
@@ -12,7 +10,7 @@ A migração de código consiste em passar o processamento de certas tarefas do 
 
 ## 3
 
-Relógios lógicos, como os vetoriais ou de Lamport, fornecem uma maneira eficiente de coordenar e ordenar eventos em sistemas distribuídos. Estes ajudam a estabelecer uma ordem total ou parcial dos eventos sem a necessidade de sincronização do relógio físico. Desta forma é possível gerir o acesso a secções criticas por parte de vários threads, grantindo que apenas um acessa a SC num dado momento. No entanto, a implementação de relógios lógicos em exclusão mútua distribuída pode introduzir uma sobrecarga de comunicação significativa. Manter e trocar informações de estado entre processos para atualizar os relógios lógicos pode aumentar a quantidade de mensagens trocadas.
+O algoritmo distribuído de exclusão mútua baseado em relógios lógicos fornece um conjunto ordenado de eventos para garantir a exclusão mútua sem necessitar de um relógio físico sincronizado entres os vários participantes. A principal desvantagem é a sobrecarga de comunicação, uma vez que este algoritmo parte do princípio de que há uma troca constante de mensagens e o relógio lógico de um dado participante pode ficar bloqueado até receber uma mensagem.
 
 ## 4
 

@@ -6,7 +6,9 @@ No Algoritmo da Padaria de Lamport, cada processo escolhe um número. Se dois pr
 
 ## 2
 
-<img src="../imgs/teste_2024_2.png">
+<img src="../imgs/teste_2024_2.png" />
+
+(tudo mal)
 
 ## 3
 
