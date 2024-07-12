@@ -5,8 +5,9 @@ import java.io.IOException;
 import guiao8.TaggedConnection.Frame;
 
 public class Demultiplexer {
+    private TaggedConnection t;
     public Demultiplexer(TaggedConnection conn) {
-
+        this.t = conn;
     }
 
     public void start() {
@@ -22,7 +23,7 @@ public class Demultiplexer {
     }
 
     public byte[] receive(int tag) throws IOException, InterruptedException {
-        
+        return null;
     }
     
     public void close() throws IOException {

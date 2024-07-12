@@ -38,7 +38,7 @@ public class FramedConnection implements AutoCloseable{
             this.read.lock();
             int size = this.dis.readInt();
             byte[] b = new byte[size];
-            this.dis.readFully(null);
+            this.dis.readFully(b);
             return b;
         }
         finally{
@@ -47,8 +47,6 @@ public class FramedConnection implements AutoCloseable{
     }
 
     public void close() throws IOException {
-        this.dis.close();
-        this.dos.close();
         this.s.shutdownInput();
         this.s.shutdownOutput();
         this.s.close();
