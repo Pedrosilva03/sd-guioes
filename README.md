@@ -1,7 +1,10 @@
-# sd-guioes
+<h1 align="center">Sistemas Distribuídos - 2023/2024</h1>
+<h2 align="center">Guiões e Testes</h2>
 
-## Disclaimer
+## Notas do repositório
+- Este repositório foi feito como ferramenta de estudo para o exame de Sistemas Distribuídos de 2023/2024.
+- Não está muito organizado, mas contém grande parte dos guiões, exercícios, e testes de anos anteriores.
+- As resoluções não foram verificadas, pelo que podem conter erros (podem ser usadas como referência, mas não como resposta absoluta).
 
-Isto ta uma javardice isto então a pasta [practise](https://github.com/Pedrosilva03/sd-guioes/tree/main/practise) vai ficar para mim vou meter lá mais cenas para além dos testes que fiz para os stores.
-- Vou meter lá perguntas teóricas dos testes se quiserem ver a minha resolução podem ir lá.
-- Beijinho na bola esquerda
+## Conclusão
+Bom estudo!
